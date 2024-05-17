@@ -24,7 +24,7 @@ function FormLog({ onInicioSesion }) {
     <form onSubmit={handleSubmit}>
       <label>
         Correo electrónico:
-        <input
+        <input className="w-64 block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           type="email"
           value={correo}
           onChange={(e) => setCorreo(e.target.value)}
@@ -33,14 +33,14 @@ function FormLog({ onInicioSesion }) {
       <br />
       <label>
         Contraseña:
-        <input
+        <input className="w-64 block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           type="password"
           value={contraseña}
           onChange={(e) => setContraseña(e.target.value)}
         />
       </label>
       <br />
-      <button type="submit">Iniciar Sesión</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Iniciar Sesión</button>
     </form>
   );
 }
