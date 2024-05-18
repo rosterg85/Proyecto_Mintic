@@ -9,7 +9,7 @@ function App() {
   const [usuarios, setUsuarios] = useState([]);
   const [mostrarFormRegistro, setMostrarFormRegistro] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
- 
+  
 
   const handleRegistro = (nuevoUsuario) => {
     setUsuarios([...usuarios, nuevoUsuario]);
@@ -17,6 +17,7 @@ function App() {
   };
   const handleInicioSesion = (credenciales) => {
     const usuarios = [{nombre:'123', correo:"123@123.com", celular: "123", contraseña: "123"} ];
+    
     const usuarioEncontrado = usuarios.find(
       (usuario) => usuario.correo === credenciales.correo && usuario.contraseña === credenciales.contraseña
     );
@@ -27,6 +28,8 @@ function App() {
       alert('Correo electrónico o contraseña incorrectos');
     }
   };
+  
+  
   
   return (
     <div>

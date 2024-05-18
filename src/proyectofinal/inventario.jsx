@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 
-const productsData = [
-  { id: 1, name: 'Producto 1', stock: 10, empaque: 'Caja', price: 10.50 },
-  { id: 2, name: 'Producto 2', stock: 5, empaque: 'Bolsa', price: 8.75 },
-  { id: 3, name: 'Producto 3', stock: 20, empaque: 'Bolsa', price: 12.25 },
-  { id: 4, name: 'Producto 4', stock: 15, empaque: 'Caja', price: 15.00 },
-];
 
-const HomePage = ({ username }) => {
+const Inventario = ({ products, setProducts}) => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [newPrice, setNewPrice] = useState('');
   const [Adicionar, setAdicionar] = useState('');
-  const [products, setProducts] = useState(productsData);
+ 
   const [newName, setNewName] = useState('');
   const [newExistencia, setNewExistencia] = useState('');
   const [newTipo, setNewTipo] = useState('');
@@ -106,9 +100,9 @@ const handleAddProduct = () => {
   };
 
   return (
-    <div className="home-page mt-9">
+    <div className=" mt-9">
 
-      <h2>Bienvenido, A la pagina de inventario {username}!</h2>
+      <h2>Bienvenido, A la pagina de inventario </h2>
       
       
       <div class="flex relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -178,4 +172,4 @@ const handleAddProduct = () => {
   );
 };
 
-export default HomePage;
+export default Inventario;

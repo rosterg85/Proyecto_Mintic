@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import Inventario from './inventario'
+import Inventario from './inventario';
+import Ventas from './ventas';
+const inicioProductos = [
+  { id: 1, name: 'Producto 1', stock: 10, empaque: 'Caja', price: 10.50 },
+  { id: 2, name: 'Producto 2', stock: 5, empaque: 'Bolsa', price: 8.75 },
+  { id: 3, name: 'Producto 3', stock: 20, empaque: 'Bolsa', price: 12.25 },
+  { id: 4, name: 'Producto 4', stock: 15, empaque: 'Caja', price: 15.00 },
+];
+const Menu = () => {
 
-const menu = () => {
-
+  const [products, setProductos]= useState(inicioProductos);
+  
   return(
   <header>
   <div>
@@ -28,7 +36,7 @@ const menu = () => {
         <Link to="/inventario" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Inventario</Link>
       </li>
       <li>
-        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+        <Link to="/ventas" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Ventas</Link>
       </li>
       <li>
         <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
@@ -42,8 +50,8 @@ const menu = () => {
 </nav>
 <div class=" block">
         <Routes>
-          <Route path="/inventario" element={<Inventario />} />
-          <Route path="/about" element={<Inventario />} />
+          <Route path="/inventario" element={<Inventario products={products} setProducts={setProductos} />} />
+          <Route path="/ventas" element={<Ventas products={products} setProducts={setProductos} />} />
           <Route path="/contact" element={<Inventario />} />
         </Routes>
       </div>
@@ -51,4 +59,4 @@ const menu = () => {
 </header>
   );
 };
-export default menu;
+export default Menu;
