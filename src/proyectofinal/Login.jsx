@@ -17,6 +17,7 @@ function FormLog({ onInicioSesion }) {
     console.log("Contraseña:", nuevaContraseña);
     const credenciales = { correo, contraseña }; // Crear un objeto con las credenciales
     onInicioSesion(credenciales); // Pasar el objeto a la función onInicioSesion
+    
     setCorreo('');
     setContraseña('');
   };
