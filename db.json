@@ -1,0 +1,144 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Torta Decorada",
+      "category": "Torta",
+      "price": "3000",
+      "empaque": "Caja",
+      "stock": 30,
+      "img": "torta-decorada.jpg",
+      "desc": "Múltiples opciones de decoración para diferentes tipos de eventos."
+    },
+    {
+      "id": "2",
+      "name": "Brazo de reina",
+      "category": "Reposteria",
+      "price": "35000",
+      "empaque": "Caja",
+      "stock": "15",
+      "img": "brazo-de-reina.jpg",
+      "desc": "Relleno de arequipe o crema chantilly."
+    },
+    {
+      "id": "3",
+      "name": "Torta básica",
+      "category": "Torta",
+      "price": 30000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "torta-basica.jpg",
+      "desc": " Diferentes sabores disposibles."
+    },
+    {
+      "id": "4",
+      "name": "Torta con relleno",
+      "category": "Torta",
+      "price": 40000,
+      "empaque": "Caja",
+      "stock": 20,
+      "img": "torta-con-relleno.jpg",
+      "desc": "Diferentes sabores disposibles. "
+    },
+    {
+      "id": "5",
+      "name": "Cupcake",
+      "category": "Reposteria",
+      "price": 4500,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "Cupcake.jpg",
+      "desc": "Diferentes sabores disposibles y glaseados."
+    },
+    {
+      "id": "7",
+      "name": "Tartaleta de fresa",
+      "category": "Tartaleta",
+      "price": 5500,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "tartaleta-fresa.jpg",
+      "desc": "Deliciosa tartaleta de fresa. "
+    },
+    {
+      "id": "8",
+      "name": "Tartaleta de frutas",
+      "category": "Tartaleta",
+      "price": 5500,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "tartaletas-de-Frutas.jpg",
+      "desc": "Deliciosa tartaleta de frutas frescas."
+    },
+    {
+      "id": "9",
+      "name": "Tartaleta de Chocolate",
+      "category": "Tartaleta",
+      "price": 6500,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "tartaletas-de-chocolate.jpg",
+      "desc": "Deliciosa tartaleta de chocolate."
+    },
+    {
+      "id": "10",
+      "name": "Arequipe Casero",
+      "category": "Postres",
+      "price": 15000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "arequipe-casero.jpg",
+      "desc": "500 gramos de delicioso arequipe casero."
+    },
+    {
+      "id": "11",
+      "name": "Brownies",
+      "category": "Reposteria",
+      "price": 10000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "brownies.jpg",
+      "desc": "Delicioso brownies bajos en azucar."
+    },
+    {
+      "id": "15",
+      "name": "Postre de Natas",
+      "category": "Postres",
+      "price": 8000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "Postre-de-Natas.jpg",
+      "desc": "Delicioso postre de natas."
+    },
+    {
+      "id": "16",
+      "name": "Tarta Mouse de limón",
+      "category": "Postres",
+      "price": 10000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "Tarta-mouse-de-limon.jpg",
+      "desc": "Delicioso postre de limón."
+    },
+    {
+      "id": "17",
+      "name": "Galletas decoradas",
+      "category": "Postres",
+      "price": 15000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "galletas-decoradas.jpg",
+      "desc": "Deliciosas galletas decoradas."
+    },
+    {
+      "id": "18",
+      "name": "Milhoja",
+      "category": "Reposteria",
+      "price": 8000,
+      "empaque": "Caja",
+      "stock": 15,
+      "img": "milhojas.jpg",
+      "desc": "Deliciosa milhojas con diferentes rellenos disponibles."
+    }
+  ]
+}
