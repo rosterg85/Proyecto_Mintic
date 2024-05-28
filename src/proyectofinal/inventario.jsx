@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {editarProducto, eliminarProducto,nuevoProducto, obtenerProductos} from "../complementos/API";
+import React, { useState,useEffect } from 'react';
+import {editarProducto, eliminarProducto,nuevoProducto} from "../complementos/API";
 
 
 
@@ -10,9 +10,12 @@ const Inventario = ({ products, setProducts}) => {
   const [newPrice, setNewPrice] = useState('');
   const [Adicionar, setAdicionar] = useState('');
   const [newName, setNewName] = useState('');
+  const [newCategory, setNewCategory] = useState('');
   const [newExistencia, setNewExistencia] = useState('');
   const [newTipo, setNewTipo] = useState('');
   const [newPrecio, setNewPrecio] = useState('');
+  const [newDesc, setNewDesc] = useState('');
+  const [imgFile, setImgFile] = useState(null);
 
   const handleRowSelect = (product) => {
     setSelectedProduct(product);
@@ -21,6 +24,7 @@ const Inventario = ({ products, setProducts}) => {
     setAdicionar(product.stock);
     
   };
+  
 
   const handlePriceChange = (e) => {
     setNewPrice(e.target.value);
@@ -32,6 +36,9 @@ const Inventario = ({ products, setProducts}) => {
   const manejoCambioNombre =(e) =>{
     setNewName(e.target.value);
   } ;
+  const manejoCambioCategoria =(e) =>{
+    setNewCategory(e.target.value);
+  } ;
   const manejoCambioExistencia =(e) =>{
     setNewExistencia(e.target.value);
   } ;
@@ -41,7 +48,34 @@ const Inventario = ({ products, setProducts}) => {
   const manejoCambioPrecio =(e) =>{
     setNewPrecio(e.target.value);
   } ;
+  const manejoCambioDesc =(e) =>{
+    setNewDesc(e.target.value);
+  } ;
+  
+  let nuevoid = new Date().getTime().toString();
+  const [nProducto, setnProducto] = useState({
+    id: nuevoid,
+    name: '',
+    category: '',
+    empaque: '',
+    price: 0,
+    stock: 0,
+    img: '',
+    desc: ''
+  });
 
+  useEffect(() => {
+    setnProducto({
+      id: nuevoid,
+      name: newName,
+      category: newCategory,
+      empaque: newTipo,
+      price: parseFloat(newPrecio),
+      stock: parseInt(newExistencia),
+      img: imgFile ? imgFile.name : '',
+      desc: newDesc
+    });
+  }, [nuevoid,newName, newCategory, newTipo, newPrecio, newExistencia, newDesc, imgFile]);
  
   const handleEditar = () => {
     // Llamar a editarProducto con el producto actualizado
@@ -84,58 +118,51 @@ const Inventario = ({ products, setProducts}) => {
   }
 
 const handleAddProduct = () => {
-        if (!newName || !newExistencia || !newTipo || !newPrecio) {
+        if (!newName || !newCategory  || !newTipo || !newPrecio|| !newExistencia ) {
           alert('Por favor completa todos los campos.');
           return;
         }
-    
-        const nProducto = {
-          id: products.length + 1,
-          name: newName,
-          stock: parseInt(newExistencia),
-          empaque: newTipo, // Puedes cambiar esto según tus necesidades
-          price: parseFloat(newPrecio),
-        };
-
-        nuevoProducto(nProducto)
+         nuevoProducto(nProducto)
         .then(() => {
           console.log('Producto creado exitosamente');
           alert("No olvide copiar el archivo en la carpeta imagen sin cambiar el nombre");
+          setProducts([...products, nProducto]);
+        setNewName('');
+        setNewExistencia('');
+        setNewTipo('');
+        setNewPrecio('');
+        setNewCategory('');
+        setNewDesc('');
+        setImgFile(null);
           // mostrar mensaje de éxito
         })
         .catch(error => {
           console.error('Error al crear el producto:', error);
           // Aquí podrías mostrar un mensaje de error al usuario
         });
-        
-    setProducts([...products, nProducto]);
-    setNewName('');
-    setNewExistencia('');
-    setNewTipo('');
-    setNewPrecio('');
+  };
+  const handleImageChange = (e) => {
+       
+    const file = e.target.files[0];
+    setImgFile(file);
   };
 
   return (
-    <div className=" mt-9">
-
-      <h2>Bienvenido, A la pagina de inventario </h2>
-      
-      
-      <div className="flex relative overflow-auto shadow-md sm:rounded-lg ">
-      <div className=" overflow-auto max-h-96">
-      <table className="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto overflow-scroll min-h-full w-full ">
+      <div className=" mt-12">
         <caption className="m-1 text-xl md:text-blue-700">Productos</caption>
-        <thead   className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="flex  overflow-auto shadow-md sm:rounded-lg ">
+      <div className=" overflow-auto max-h-96 flex-grow">
+      <table className="relative text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky ">
           <tr className="border-y-4">
-            <th scope="col" className="p-4">Seleccionar</th>
-            <th scope="col" className="p-4">Nombre</th>
-            <th scope="col" className="p-4">Existencias</th>
-            <th scope="col" className="p-4">Tipo de Empaque</th>
-            <th scope="col" className="p-4">Precio</th>
-            
+            <th scope="col" className="sticky p-4">Seleccionar</th>
+            <th scope="col" className="sticky p-4">Nombre</th>
+            <th scope="col" className="sticky p-4">Existencias</th>
+            <th scope="col" className="sticky p-4">Tipo de Empaque</th>
+            <th scope="col" className="sticky p-4">Precio</th> 
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {  Array.isArray(products) && products.map(product => (
             <tr key={product.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <td className="px-6 py-4 flex items-center px-6 py-4 space-x-4">
@@ -168,40 +195,73 @@ const handleAddProduct = () => {
          focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 
          dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={handleEliminar}>Borrar Producto</button>
          </div>
-         <div className="font-sans text-black-500 border-4 mt-10" >
-      <h3 className="m-8 text-2xl" >Agregar nuevo Producto</h3>
-      <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr className="border-y-4">
-            <th scope="col" className="p-4">Nombre</th>
-            <th scope="col" className="p-4">Existencias</th>
-            <th scope="col" className="p-4">Tipo de Empaque</th>
-            <th scope="col" className="p-4">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="px-6 py-4"> <input className="border border-gray-800"  type="text" id="newName" name="newName"  
-             value={newName} onChange={manejoCambioNombre} /> </td>
-            <td className="px-6 py-4"> <input className="border border-gray-800"  type="text" id="newExistencia" 
-            name="newExistencia"  value={newExistencia} onChange={manejoCambioExistencia}  /> </td>
-            <td className="px-6 py-4"> <input className="border border-gray-800"  type="text" id="newTipo" 
-            name="newTipo" value={newTipo} onChange={manejoCambioTipo} /> </td>
-            <td className="px-6 py-4"> <input className="border border-gray-800"  type="text" id="newPrecio"
-             name="newPrecio" value={newPrecio}  onChange={manejoCambioPrecio}/> </td>
-             </tr>
-        </tbody>
-      </table>
-      <button  className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 
-      focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 
-      text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white 
-      dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={handleAddProduct}>Ingresar Producto</button>
-
-      </div>
+        
+         <article className="m-4 flex-wrap bg-gray-50  border-gray-300  text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 
+      block py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+      dark:focus:border-blue-500 ">
+         <h3 className="text-blue-950 font-bold">Adicionar Productos</h3>
+         <div className="flex flex-col items-start m-2">
+              <label className="text-blue-950 font-semibold">Imagen:</label>
+              <input type="file" accept="image/*" onChange={handleImageChange} />
+              {imgFile && <img src={URL.createObjectURL(imgFile)} alt="Preview" />} 
+              </div>
+            <div className="grid grid-cols-2 gap-4  place-items-center p-4 border-blue-500 bg-blue-50" >
+              
+              <div className="flex flex-col items-start m-2 ">
+                <label className=" text-justify pr-5 text-gray-900">Nombre:</label>
+                <input className="bg-white text-blue-950 font-semibold 
+                border-2 px-3 h-10 rounded-md border-indigo-800/20 w-full" 
+                id="newName" name="newName" type="text" placeholder={newName}
+                onChange={manejoCambioNombre}></input>
+              </div>
+              <div className="flex flex-col items-start m-2 ">
+                <label className="text-justify pr-5 text-gray-900 ">Categoria</label>
+                <input className="bg-white text-blue-950 font-semibold border-2 px-3 
+                rounded-md border-indigo-800/20 w-full h-10" 
+                id="newCategory" name="newCategory" type="text" placeholder={newCategory} onChange={manejoCambioCategoria}></input>
+              </div>
+              <div className="flex flex-col items-start m-2 ">
+                <label className="text-justify pr-5 text-gray-900 ">Tipo de Empaque</label>
+                <input className="bg-white text-blue-950 font-semibold border-2 px-3 
+                rounded-md border-indigo-800/20 w-full h-10" 
+                id="newTipo" name="newTipo" type="text" placeholder={newTipo} onChange={manejoCambioTipo}></input>
+              </div>
+              <div className="flex flex-col items-start m-2 ">
+                <label className=" text-justify pr-5 text-gray-900">Precio (COP):  </label>
+                <input className="bg-whote text-yellow-900 font-semibold border-2 px-3 
+                rounded-md border-indigo-800/20 w-full h-10" 
+                id="newPrecio" name="newPrecio" type="number" placeholder={newPrecio} 
+                min={1000} max={1000000} onChange={manejoCambioPrecio}></input>
+              </div>
+              <div className="flex flex-col items-start m-2 ">
+                <label className="text-justify pr-5 text-gray-900 ">Existencias</label>
+                <input className="bg-white text-blue-950 font-semibold border-2 px-3 
+                rounded-md border-indigo-800/20 w-full h-10" 
+                id="newExistencia" name="newExistencia" type="text" placeholder={newExistencia} onChange={manejoCambioExistencia}></input>
+              </div>
+              
+              <div className="flex flex-col items-start m-2 ">
+                <label className="text-justify pr-5 text-gray-600 ">Descripción</label>
+                <input className="bg-white text-blue-950 font-semibold h-20 w-full overflow-wrap
+                border-2 px-3 rounded-md border-indigo-800/20" 
+                id="newDesc" name="newDesc" type="text" placeholder={newDesc} onChange={manejoCambioDesc}></input>
+              </div>
+              
+            </div>
+            <div className="flex flex-col items-start m-2 w-1/4">
+              <button 
+                      type="button"
+                      className=" text-white 
+                      font-bold text-center border-2 py-1 rounded-md
+                       border-white bg-indigo-800 w-full h-15"
+                      onClick={handleAddProduct}
+                  >Agregar Producto </button>
+              </div>
+          </article>
       </div>
       
-      </div>
-      
+    </div>
+    
     </div>
     
   );
