@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Torta Decorada",
-      "category": "Torta",
+      "category": "Pasteleria",
       "price": "3000",
       "empaque": "Caja",
       "stock": 30,
@@ -13,7 +13,7 @@
     {
       "id": "2",
       "name": "Brazo de reina",
-      "category": "Reposteria",
+      "category": "Pasteleria",
       "price": "35000",
       "empaque": "Caja",
       "stock": "15",
@@ -23,7 +23,7 @@
     {
       "id": "3",
       "name": "Torta básica",
-      "category": "Torta",
+      "category": "Pasteleria",
       "price": 30000,
       "empaque": "Caja",
       "stock": 15,
@@ -33,7 +33,7 @@
     {
       "id": "4",
       "name": "Torta con relleno",
-      "category": "Torta",
+      "category": "Pasteleria",
       "price": 40000,
       "empaque": "Caja",
       "stock": 20,
@@ -43,7 +43,7 @@
     {
       "id": "5",
       "name": "Cupcake",
-      "category": "Reposteria",
+      "category": "Pasteleria",
       "price": 4500,
       "empaque": "Caja",
       "stock": 15,
@@ -53,7 +53,7 @@
     {
       "id": "7",
       "name": "Tartaleta de fresa",
-      "category": "Tartaleta",
+      "category": "Panaderia",
       "price": 5500,
       "empaque": "Caja",
       "stock": 15,
@@ -63,7 +63,7 @@
     {
       "id": "8",
       "name": "Tartaleta de frutas",
-      "category": "Tartaleta",
+      "category": "Panaderia",
       "price": 5500,
       "empaque": "Caja",
       "stock": 15,
@@ -73,7 +73,7 @@
     {
       "id": "9",
       "name": "Tartaleta de Chocolate",
-      "category": "Tartaleta",
+      "category": "Panaderia",
       "price": 6500,
       "empaque": "Caja",
       "stock": 15,
@@ -83,7 +83,7 @@
     {
       "id": "10",
       "name": "Arequipe Casero",
-      "category": "Postres",
+      "category": "Dulces",
       "price": 15000,
       "empaque": "Caja",
       "stock": 15,
@@ -93,7 +93,7 @@
     {
       "id": "11",
       "name": "Brownies",
-      "category": "Reposteria",
+      "category": "Pasteleria",
       "price": 10000,
       "empaque": "Caja",
       "stock": 15,
@@ -103,7 +103,7 @@
     {
       "id": "15",
       "name": "Postre de Natas",
-      "category": "Postres",
+      "category": "Dulces",
       "price": 8000,
       "empaque": "Caja",
       "stock": 15,
@@ -113,7 +113,7 @@
     {
       "id": "16",
       "name": "Tarta Mouse de limón",
-      "category": "Postres",
+      "category": "Pasteleria",
       "price": 10000,
       "empaque": "Caja",
       "stock": 15,
@@ -123,7 +123,7 @@
     {
       "id": "17",
       "name": "Galletas decoradas",
-      "category": "Postres",
+      "category": "Panaderia",
       "price": 15000,
       "empaque": "Caja",
       "stock": 15,
@@ -133,7 +133,7 @@
     {
       "id": "18",
       "name": "Milhoja",
-      "category": "Reposteria",
+      "category": "Pasteleria",
       "price": 8000,
       "empaque": "Caja",
       "stock": 15,
