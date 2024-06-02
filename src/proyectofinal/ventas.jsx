@@ -33,7 +33,7 @@ export const Ventas=({ products, setProducts}) =>{
                 <Link to="#" className="border-b py-2 pr-4">Pasteleria</Link>
                 <Link to="#" className="border-b py-2 pr-4">Panaderia</Link>
             </nav>
-            <div className="carrito ">
+            <div className="carrito">
                             <img className="img justify-end w-10" src="../imagenes/carrito-de-compras.png" alt="imagen carrito" />
                             <div id="carrito" className="bg-white p-3 right-5">
                                 {isEmpty ? (
@@ -119,12 +119,12 @@ export const Ventas=({ products, setProducts}) =>{
             
 
          </header>
-         <div className="grid grid-cols-1 lg:grid-cols-5">
+         <div className="md:basis-1/5 flex flex-wrap gap-4 ">
           {/*Tarjeta */}
           
          {  Array.isArray(products) && products.map(product => (
-          <div className="bg-blue-100 p-4 rounded-xl flex flex-col items-center 
-          h-100 w-60 mt-20 text-center gap-2">
+          <div className=" bg-blue-100 p-4 rounded-xl flex flex-col items-center 
+          h-100 w-60 mt-20 text-center">
            <img src={`../imagenes/${product.img}`} alt={product.name} 
            className=" h-40 w-40 space-y-4 rounded-md -mt-14 shadow-2xl rounded-full" />
            <p className="text-xl"> {product.name}</p>
