@@ -21,26 +21,22 @@ export const Ventas=({ products, setProducts}) =>{
     const [currentDate, setCurrentDate] = useState(getDate());
     return(
     
-     <div className="lg:pl-28 grid grid-cols-1 lg:grid-cols-8 ">
+     <div className="lg:pl-28 ">
         <div className="lg:col-span-6 ">
          <header className="p-4">
             <div>
                 <h1 className="text-2xl text-black-500">Productos a la Venta</h1>
                 <p>{currentDate}</p>
             </div>        
-            <nav className="text-blue-700 flex items-center gap-4 mb-20">
-                <Link to="/Todos" className="relative before:w-1/2 before:h-1 before:absolute before:bg-blue-500 py-2 pr-4 border-blue-700">Todo</Link>
-                <Link to="#" className="border-b py-2 pr-4">Pasteleria</Link>
-                <Link to="#" className="border-b py-2 pr-4">Panaderia</Link>
-            </nav>
+            
             <div className="carrito">
                             <img className="img justify-end w-10" src="../imagenes/carrito-de-compras.png" alt="imagen carrito" />
-                            <div id="carrito" className="bg-white p-3 right-5">
+                            <div id="carrito" className="bg-blue-300 p-3 right-5">
                                 {isEmpty ? (
                                     <p className="text-center text-black">El carrito esta vacio</p>
                                 ) : (
                                 <>
-                                    <table className="text-black table table-fixed p-2">
+                                    <table className="text-black table table-fixed p-2 ">
                                         <thead>
                                             <tr>
                                                 <th className=" w-1/5">Imagen</th>
@@ -55,12 +51,12 @@ export const Ventas=({ products, setProducts}) =>{
                                                 <tr key={contenido.id}>
                                                     <td>
                                                         <img 
-                                                            className="img h-20 w-1/4 text-center" 
-                                                            src={`../images/${contenido.img}`}
-                                                            alt={contenido.title} 
+                                                            className="object-fill  box-content h-12 w-12 rounded-md text-center" 
+                                                            src={`../imagenes/${contenido.img}`}
+                                                            alt={contenido.name} 
                                                         />
                                                     </td>
-                                                    <td className=" w-1/5 text-justify">{contenido.title}</td>
+                                                    <td className=" w-1/5 text-justify">{contenido.name}</td>
                                                     <td className=" w-1/5 text-center">
                                                         ${contenido.price}
                                                     </td>
@@ -116,17 +112,21 @@ export const Ventas=({ products, setProducts}) =>{
                             </div>
                         </div>
 
-            
+                        <nav className="text-blue-700 flex items-center gap-4 mb-20">
+                <Link to="/Todos" className="relative before:w-1/2 before:h-1 before:absolute before:bg-blue-500 py-2 pr-4 border-blue-700">Todo</Link>
+                <Link to="#" className="border-b py-2 pr-4">Pasteleria</Link>
+                <Link to="#" className="border-b py-2 pr-4">Panaderia</Link>
+            </nav> 
 
          </header>
-         <div className="md:basis-1/5 flex flex-wrap gap-4 ">
+
+         <div className="md:basis-1/5 flex flex-wrap gap-2 ">
           {/*Tarjeta */}
           
          {  Array.isArray(products) && products.map(product => (
           <div className=" bg-blue-100 p-4 rounded-xl flex flex-col items-center 
           h-100 w-60 mt-20 text-center">
-           <img src={`../imagenes/${product.img}`} alt={product.name} 
-           className=" h-40 w-40 space-y-4 rounded-md -mt-14 shadow-2xl rounded-full" />
+           <img src={`../imagenes/${product.img}`} alt={product.name} className=" h-40 w-40 space-y-4 rounded-full -mt-14 shadow-2xl rounded-full" />
            <p className="text-xl"> {product.name}</p>
            <p className="text-gray-500"> {product.desc}</p>
            <span className="text-gray-400"> $ {product.price}</span>
