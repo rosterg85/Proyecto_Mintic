@@ -4,6 +4,7 @@ import { useCart } from "./useShoppingCart";
 import Inventario from './inventario';
 import Ventas from './ventas';
 import { obtenerProductos } from "../complementos/API";
+import Factura from "./Factura";
 
 const inicioProductos =  await obtenerProductos();
 
@@ -12,7 +13,9 @@ const inicioProductos =  await obtenerProductos();
   
 const Menu = () => {
 
-  
+  const { info, cart, addToCart, removeFromCart,
+    decreaseQuantity, increaseQuantity, clearCart,
+     isEmpty, cartTotal} = useCart()  
 
 
      const [products, setProductos]= useState(inicioProductos);
@@ -58,6 +61,14 @@ const Menu = () => {
           <Route path="/inventario" element={<Inventario products={products} setProducts={setProductos} />} />
           <Route path="/ventas" element={<Ventas products={products} setProducts={setProductos} />} />
           <Route path="/contact" element={<Inventario />} />
+
+        <Route path='/Factura' element={<Factura
+      cart={cart}
+      cartTotal={cartTotal}
+      
+      />}/>
+        
+
         </Routes>
       </div>
 </div>

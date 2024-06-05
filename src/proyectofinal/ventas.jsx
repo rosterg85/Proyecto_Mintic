@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { useCart } from "./useShoppingCart";
 import { Route, Routes, Link } from 'react-router-dom';
-
+import Factura from "./Factura";
 
 
 function getDate() {
@@ -31,14 +31,14 @@ export const Ventas=({ products, setProducts}) =>{
             
             <div className="carrito">
                             <img className="img justify-end w-10" src="../imagenes/carrito-de-compras.png" alt="imagen carrito" />
-                            <div id="carrito" className="bg-blue-300 p-3 right-5">
+                            <div id="carrito" className="bg-blue-300 p-3 right-5  overflow-auto max-h-96 flex-grow">
                                 {isEmpty ? (
                                     <p className="text-center text-black">El carrito esta vacio</p>
                                 ) : (
                                 <>
-                                    <table className="text-black table table-fixed p-2 ">
-                                        <thead>
-                                            <tr>
+                                    <table className="relative text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+                                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky ">
+                                            <tr className="border-y-4">
                                                 <th className=" w-1/5">Imagen</th>
                                                 <th className=" w-1/5">Producto</th>
                                                 <th className=" w-1/5">Precio</th>
@@ -48,7 +48,7 @@ export const Ventas=({ products, setProducts}) =>{
                                         </thead>
                                         <tbody>
                                             {cart.map( contenido => (
-                                                <tr key={contenido.id}>
+                                                <tr key={contenido.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                                     <td>
                                                         <img 
                                                             className="object-fill  box-content h-12 w-12 rounded-md text-center" 
@@ -112,11 +112,22 @@ export const Ventas=({ products, setProducts}) =>{
                             </div>
                         </div>
 
-                        <nav className="text-blue-700 flex items-center gap-4 mb-20">
+                <nav className="text-blue-700 flex items-center gap-2 mb-2">
                 <Link to="/Todos" className="relative before:w-1/2 before:h-1 before:absolute before:bg-blue-500 py-2 pr-4 border-blue-700">Todo</Link>
                 <Link to="#" className="border-b py-2 pr-4">Pasteleria</Link>
                 <Link to="#" className="border-b py-2 pr-4">Panaderia</Link>
             </nav> 
+
+            
+<div className=" block mt-10">
+        <Routes>
+        <Route path='/Factura' element={<Factura
+      cart={cart}
+      cartTotal={cartTotal}
+      
+      />}/>
+        </Routes>
+      </div>
 
          </header>
 

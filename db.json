@@ -4,9 +4,9 @@
       "id": "1",
       "name": "Torta Decorada",
       "category": "Pasteleria",
-      "price": "3000",
+      "price": "3500",
       "empaque": "Caja",
-      "stock": 30,
+      "stock": 40,
       "img": "torta-decorada.jpg",
       "desc": "Múltiples opciones de decoración para diferentes tipos de eventos."
     },
