@@ -17,6 +17,7 @@ function FormLog({ onInicioSesion }) {
     console.log("Contraseña:", nuevaContraseña);
     const credenciales = { correo, contraseña }; // Crear un objeto con las credenciales
     onInicioSesion(credenciales); // Pasar el objeto a la función onInicioSesion
+    
     setCorreo('');
     setContraseña('');
   };
@@ -40,7 +41,7 @@ function FormLog({ onInicioSesion }) {
         />
       </label>
       <br />
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Iniciar Sesión</button>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Iniciar Sesión</button>
     </form>
   );
 }
