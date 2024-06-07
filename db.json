@@ -4,9 +4,9 @@
       "id": "1",
       "name": "Torta Decorada",
       "category": "Pasteleria",
-      "price": "3500",
+      "price": "4500",
       "empaque": "Caja",
-      "stock": 40,
+      "stock": 30,
       "img": "torta-decorada.jpg",
       "desc": "Múltiples opciones de decoración para diferentes tipos de eventos."
     },
@@ -44,9 +44,9 @@
       "id": "5",
       "name": "Cupcake",
       "category": "Pasteleria",
-      "price": 4500,
+      "price": "800",
       "empaque": "Caja",
-      "stock": 15,
+      "stock": 10,
       "img": "Cupcake.jpg",
       "desc": "Diferentes sabores disposibles y glaseados."
     },
@@ -121,16 +121,6 @@
       "desc": "Delicioso postre de limón."
     },
     {
-      "id": "17",
-      "name": "Galletas decoradas",
-      "category": "Panaderia",
-      "price": 15000,
-      "empaque": "Caja",
-      "stock": 15,
-      "img": "galletas-decoradas.jpg",
-      "desc": "Deliciosas galletas decoradas."
-    },
-    {
       "id": "18",
       "name": "Milhoja",
       "category": "Pasteleria",
@@ -139,6 +129,16 @@
       "stock": 15,
       "img": "milhojas.jpg",
       "desc": "Deliciosa milhojas con diferentes rellenos disponibles."
+    },
+    {
+      "id": "1717724667236",
+      "name": "Pastel de Bodas",
+      "category": "Pasteleria",
+      "empaque": "unidad",
+      "price": "75000",
+      "stock": 3,
+      "img": "PasteldeBodas.jpg",
+      "desc": "Pastel decorado para Bodas"
     }
   ]
 }

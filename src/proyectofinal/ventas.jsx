@@ -103,27 +103,23 @@ export const Ventas=({ products, setProducts}) =>{
                                     onClick={clearCart}
                                 >Vaciar Carrito</button>
                                         </div>
+                                        <nav className="text-blue-700 flex items-center gap-2 mb-2">
                                         <Link to="/Factura" className='px-10 place-self-center  text-gray-800 w-60
                                     font-semibold text-center my-5 border-2  rounded-md
                                      border-black bg-white h-10'> Procesar compra</Link>
+                                     </nav>
                                 </div>
 
                                 
                             </div>
                         </div>
 
-                <nav className="text-blue-700 flex items-center gap-2 mb-2">
-                <Link to="/Todos" className="relative before:w-1/2 before:h-1 before:absolute before:bg-blue-500 py-2 pr-4 border-blue-700">Todo</Link>
-                <Link to="#" className="border-b py-2 pr-4">Pasteleria</Link>
-                <Link to="#" className="border-b py-2 pr-4">Panaderia</Link>
-            </nav> 
+                 
 
             
 <div className=" block mt-10">
         <Routes>
         <Route path='/Factura' element={<Factura
-      cart={cart}
-      cartTotal={cartTotal}
       
       />}/>
         </Routes>

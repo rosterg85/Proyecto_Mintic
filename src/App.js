@@ -16,7 +16,7 @@ function App() {
     alert('¡Registro exitoso!');
   };
   const handleInicioSesion = (credenciales) => {
-    const usuarios = [{nombre:'123', correo:"123@123.com", celular: "123", contraseña: "123"} ];
+    
     
     const usuarioEncontrado = usuarios.find(
       (usuario) => usuario.correo === credenciales.correo && usuario.contraseña === credenciales.contraseña

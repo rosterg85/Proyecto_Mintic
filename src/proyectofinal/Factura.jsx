@@ -1,7 +1,15 @@
 import React from 'react';
+import { useCart } from "./useShoppingCart";
+import {editarProducto} from "../complementos/API";
  
-export default function Factura({cart, cartTotal}) {
+export default function Factura() {
+    const { info, cart, addToCart, removeFromCart,
+        decreaseQuantity, increaseQuantity, clearCart,
+         isEmpty, cartTotal} = useCart()  
+    
     const npedido= new Date().getTime().toString();
+
+    
 
     return (
         <div className='lg:pl-28 flex flex-col items-start 4/5 bg-white min-h-80'>
